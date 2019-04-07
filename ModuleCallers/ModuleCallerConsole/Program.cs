@@ -44,13 +44,13 @@ namespace ModuleCallerConsole
             response = await client.GetAsync(GetProducts);
             if (response.IsSuccessStatusCode)
             {
-                categories = await ReadAsJsonAsync<dynamic>(response.Content);
+                products = await ReadAsJsonAsync<dynamic>(response.Content);
             }
 
-            foreach (var category in categories)
+            foreach (var product in products)
             {
-                Console.WriteLine("Product ID - " + category.productId);
-                Console.WriteLine("Product Name - " + category.productName);
+                Console.WriteLine("Product ID - " + product.productId);
+                Console.WriteLine("Product Name - " + product.productName);
                 Console.WriteLine();
             }
         }
